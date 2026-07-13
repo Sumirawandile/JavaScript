@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+}
+
+/* Every page uses this wrapper so header/main/footer stack
+   and fill the full screen height with no scrolling */
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  background-color: #d41e30;
+  color: #ffffff;
+  padding: 14px 20px;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-size: 1.6rem;
+}
+
+.site-header p {
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ---------- NAV STRIP ---------- */
+.nav-strip {
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-strip a {
+  margin: 0 12px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-strip a:hover {
+  color: #dc3545;
+}
+
+/* ---------- MARQUEE (scrolling announcement) ---------- */
+.marquee-wrap {
+  background-color: #ffe5e8;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px 0;
+  border-bottom: 2px solid #dc3545;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  color: #dc3545;
+  font-weight: 500;
+  font-size: 0.9rem;
+  animation: scroll-left 14s linear infinite;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ---------- QUOTE STRIP ---------- */
+.quote-strip {
+  background-color: #d41e30;
+  color: #fff;
+  text-align: center;
+  padding: 6px 20px;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ---------- DEPARTMENT HERO (photo background) ---------- */
+.dept-hero {
+  flex: 1;                 /* fills all remaining space, no scroll */
+  position: relative;
+  background-image: url('department.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: #343a40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dark tint so white text stays readable over the photo */
+.dept-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.dept-hero-text {
+  position: relative;
+  background-color: rgba(211, 17, 36, 0.88);
+  color: #fff;
+  padding: 20px 32px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 460px;
+}
+
+.dept-hero-text p {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.btn-link, #showInfoBtn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #ff3d51;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-link:hover, #showInfoBtn:hover {
+  background-color: #f1f1f1;
+}
+
+/* on student page the button is red-on-white instead */
+#showInfoBtn {
+  background-color: #be2131;
+  color: #fff;
+}
+
+#showInfoBtn:hover {
+  background-color: #b61c2b;
+}
+
+/* ---------- FACT STRIP (bottom row of numbers, dept page) ---------- */
+.fact-strip {
+  background-color: #f8f9fa;
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.fact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.fact-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #db1f32;
+}
+
+.fact-label {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+/* ---------- MINI FACTS ROW (student page, icon strip) ---------- */
+.mini-facts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.mini-fact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-fact-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fce8ea;
+  color: #da1d30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.mini-fact-text {
+  font-size: 0.75rem;
+  color: #444;
+  text-align: left;
+}
+
+.mini-fact-text strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #222;
+}
+
+/* ---------- STUDENT PAGE MAIN CONTENT ---------- */
+.center-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.student-card {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.info-box {
+  min-height: 50px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  text-align: left;
+}
+
+table.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+table.record-table th, table.record-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+table.record-table th {
+  background-color: #df1d31;
+  color: #fff;
+  width: 35%;
+}
+
+table.record-table tr:nth-child(even) td {
+  background-color: #f8f9fa;
+}
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.8rem;
+}
