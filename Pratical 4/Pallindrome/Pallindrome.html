@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Number Palindrome Checker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 320px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  input {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  button:hover {
+    background: #45a049;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .success { color: green; }
+  .fail { color: red; }
+  .error { color: orange; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Number Palindrome Checker</h2>
+  <input type="text" id="numberInput" placeholder="Enter a number">
+  <br>
+  <button onclick="checkPalindrome()">Check</button>
+  <div id="result"></div>
+</div>
+
+<script>
+  function reverseNumber(num) {
+    let reversed = 0;
+    let n = Math.abs(num);
+    while (n > 0) {
+      const lastDigit = n % 10;
+      reversed = reversed * 10 + lastDigit;
+      n = Math.floor(n / 10);
+    }
+    return reversed;
+  }
+
+  function checkPalindrome() {
+    const input = document.getElementById("numberInput").value;
+    const resultDiv = document.getElementById("result");
+    const num = Number(input);
+
+    if (input.trim() === "" || isNaN(num)) {
+      resultDiv.innerHTML = "❌ Please enter a valid number.";
+      resultDiv.className = "error";
+      return;
+    }
+
+    const reversed = reverseNumber(num);
+    const isPalin = Math.abs(num) === reversed;
+
+    if (isPalin) {
+      resultDiv.innerHTML = `✅ ${num} is a Palindrome! (Reversed: ${reversed})`;
+      resultDiv.className = "success";
+    } else {
+      resultDiv.innerHTML = `❌ ${num} is NOT a Palindrome. (Reversed: ${reversed})`;
+      resultDiv.className = "fail";
+    }
+  }
+</script>
+
+</body>
+</html>
