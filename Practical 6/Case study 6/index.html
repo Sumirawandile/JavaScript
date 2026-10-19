@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text & Email Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <div>
+            <h1>Text & Email Analyzer</h1>
+            <p>JavaScript • String Functions • Regular Expressions</p>
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- LEFT : EMAIL VALIDATION -->
+        <section class="card email-card">
+
+            <div class="title">
+                <span>01</span>
+                <div>
+                    <h2>Email Validation</h2>
+                    <p>Validate email using Regex</p>
+                </div>
+            </div>
+
+            <input
+                type="text"
+                id="emailInput"
+                placeholder="example@gmail.com">
+
+            <button onclick="validateEmail()">
+                Validate Email
+            </button>
+
+            <p id="emailResult" class="result">
+                Enter an email address
+            </p>
+
+        </section>
+
+
+        <!-- CENTER : TEXT ANALYSIS -->
+        <section class="card text-card">
+
+            <div class="title">
+                <span>02</span>
+                <div>
+                    <h2>Text Analysis</h2>
+                    <p>Analyze your text</p>
+                </div>
+            </div>
+
+            <textarea
+                id="textInput"
+                placeholder="Enter text containing emails, phone numbers, URLs and hashtags..."></textarea>
+
+            <div class="buttons">
+                <button onclick="analyzeText()">
+                    Analyze
+                </button>
+
+                <button class="clear-btn" onclick="clearText()">
+                    Clear
+                </button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats">
+
+                <div>
+                    <strong id="wordCount">0</strong>
+                    <small>Words</small>
+                </div>
+
+                <div>
+                    <strong id="charCount">0</strong>
+                    <small>Characters</small>
+                </div>
+
+                <div>
+                    <strong id="vowelCount">0</strong>
+                    <small>Vowels</small>
+                </div>
+
+                <div>
+                    <strong id="sentenceCount">0</strong>
+                    <small>Sentences</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT : DATA EXTRACTION -->
+        <section class="card extraction-card">
+
+            <div class="title">
+                <span>03</span>
+                <div>
+                    <h2>Data Extraction</h2>
+                    <p>Find data using Regex</p>
+                </div>
+            </div>
+
+            <div class="extract-item">
+                <b>Emails</b>
+                <p id="emails">No emails found</p>
+            </div>
+
+            <div class="extract-item">
+                <b>Phone Numbers</b>
+                <p id="phones">No phone numbers found</p>
+            </div>
+
+            <div class="extract-item">
+                <b>Hashtags</b>
+                <p id="hashtags">No hashtags found</p>
+            </div>
+
+            <div class="extract-item">
+                <b>URLs</b>
+                <p id="urls">No URLs found</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ADDITIONAL ANALYSIS -->
+    <section class="bottom-card">
+
+        <div class="bottom-title">
+            <h2>Quick Text Insights</h2>
+            <span>String Functions</span>
+        </div>
+
+        <div class="insights">
+
+            <div>
+                <small>Longest Word</small>
+                <strong id="longestWord">-</strong>
+            </div>
+
+            <div>
+                <small>UPPERCASE</small>
+                <strong id="upperText">-</strong>
+            </div>
+
+            <div>
+                <small>lowercase</small>
+                <strong id="lowerText">-</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        HTML &nbsp; • &nbsp; CSS &nbsp; • &nbsp; JavaScript
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
