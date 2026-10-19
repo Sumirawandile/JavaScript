@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITZONE | Gym Admission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <div class="logo"><span>FIT</span>ZONE</div>
+            <div class="nav-tag">TRAIN • SWEAT • TRANSFORM</div>
+        </nav>
+
+        <div class="hero-content">
+            <div>
+                <p class="eyebrow">MEMBERSHIP APPLICATION</p>
+                <h1>START YOUR<br><span>FITNESS JOURNEY.</span></h1>
+                <p class="hero-text">Join FitZone and turn your goals into progress. Complete the admission form to get started.</p>
+                <div class="hero-stats">
+                    <div><strong>24/7</strong><small>ACCESS</small></div>
+                    <div><strong>50+</strong><small>EQUIPMENT</small></div>
+                    <div><strong>10+</strong><small>TRAINERS</small></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="form-wrap">
+        <div class="form-heading">
+            <div>
+                <p class="section-kicker">FITZONE GYM</p>
+                <h2>Admission Form</h2>
+                <p>Tell us a little about yourself and your fitness goals.</p>
+            </div>
+            <div class="required-note"><span>*</span> Required fields</div>
+        </div>
+
+        <form id="gymForm" novalidate>
+            <section class="form-section">
+                <div class="section-title">
+                    <span class="number">01</span>
+                    <div><h3>Personal Details</h3><p>Your basic information</p></div>
+                </div>
+
+                <div class="grid two">
+                    <div class="field">
+                        <label for="fullName">Full Name <span>*</span></label>
+                        <input type="text" id="fullName" placeholder="e.g. Rahul Sharma" autocomplete="name">
+                        <small class="message" id="nameMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address <span>*</span></label>
+                        <input type="email" id="email" placeholder="e.g. rahul@gmail.com" autocomplete="email">
+                        <small class="message" id="emailMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Mobile Number <span>*</span></label>
+                        <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+                        <small class="message" id="phoneMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="dob">Date of Birth <span>*</span></label>
+                        <input type="date" id="dob">
+                        <small class="message" id="dobMsg"></small>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Gender <span>*</span></label>
+                    <div class="choice-row">
+                        <label class="choice"><input type="radio" name="gender" value="Male"><span>Male</span></label>
+                        <label class="choice"><input type="radio" name="gender" value="Female"><span>Female</span></label>
+                        <label class="choice"><input type="radio" name="gender" value="Other"><span>Other</span></label>
+                    </div>
+                    <small class="message" id="genderMsg"></small>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-title">
+                    <span class="number">02</span>
+                    <div><h3>Membership & Fitness</h3><p>Choose what fits your goals</p></div>
+                </div>
+
+                <div class="membership-cards">
+                    <label class="plan">
+                        <input type="radio" name="plan" value="Monthly">
+                        <span class="plan-content"><b>MONTHLY</b><strong>₹1,499</strong><small>Flexible plan</small></span>
+                    </label>
+                    <label class="plan featured">
+                        <input type="radio" name="plan" value="Quarterly">
+                        <span class="popular">POPULAR</span>
+                        <span class="plan-content"><b>QUARTERLY</b><strong>₹3,999</strong><small>Save more</small></span>
+                    </label>
+                    <label class="plan">
+                        <input type="radio" name="plan" value="Yearly">
+                        <span class="plan-content"><b>YEARLY</b><strong>₹11,999</strong><small>Best value</small></span>
+                    </label>
+                </div>
+                <small class="message" id="planMsg"></small>
+
+                <div class="grid two">
+                    <div class="field">
+                        <label for="goal">Primary Fitness Goal <span>*</span></label>
+                        <select id="goal">
+                            <option value="">Select your goal</option>
+                            <option>Muscle Gain</option>
+                            <option>Weight Loss</option>
+                            <option>Strength Training</option>
+                            <option>General Fitness</option>
+                            <option>Bodybuilding</option>
+                            <option>Endurance & Cardio</option>
+                        </select>
+                        <small class="message" id="goalMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="time">Preferred Workout Time <span>*</span></label>
+                        <select id="time">
+                            <option value="">Choose a time</option>
+                            <option>Early Morning (5 AM – 8 AM)</option>
+                            <option>Morning (8 AM – 11 AM)</option>
+                            <option>Afternoon (12 PM – 4 PM)</option>
+                            <option>Evening (4 PM – 7 PM)</option>
+                            <option>Night (7 PM – 10 PM)</option>
+                        </select>
+                        <small class="message" id="timeMsg"></small>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="experience">Fitness Experience</label>
+                    <div class="experience-row">
+                        <label class="experience"><input type="radio" name="experience" value="Beginner"><span>🌱 Beginner</span></label>
+                        <label class="experience"><input type="radio" name="experience" value="Intermediate"><span>💪 Intermediate</span></label>
+                        <label class="experience"><input type="radio" name="experience" value="Advanced"><span>🔥 Advanced</span></label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-title">
+                    <span class="number">03</span>
+                    <div><h3>Emergency Contact</h3><p>For your safety at FitZone</p></div>
+                </div>
+
+                <div class="grid two">
+                    <div class="field">
+                        <label for="emergencyName">Contact Name <span>*</span></label>
+                        <input type="text" id="emergencyName" placeholder="Emergency contact name">
+                        <small class="message" id="emergencyNameMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="emergencyPhone">Contact Number <span>*</span></label>
+                        <input type="tel" id="emergencyPhone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+                        <small class="message" id="emergencyPhoneMsg"></small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-title">
+                    <span class="number">04</span>
+                    <div><h3>Create Your Member Account</h3><p>Secure your application</p></div>
+                </div>
+
+                <div class="grid two">
+                    <div class="field">
+                        <label for="password">Create Password <span>*</span></label>
+                        <input type="password" id="password" placeholder="Minimum 8 characters">
+                        <div class="strength"><span id="strengthBar"></span></div>
+                        <small class="message" id="passwordMsg"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirmPassword">Confirm Password <span>*</span></label>
+                        <input type="password" id="confirmPassword" placeholder="Re-enter your password">
+                        <small class="message" id="confirmMsg"></small>
+                    </div>
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" id="terms">
+                    <span>I agree to the FitZone membership terms and confirm that the information provided is correct. <b>*</b></span>
+                </label>
+                <small class="message" id="termsMsg"></small>
+            </section>
+
+            <div id="formStatus" class="form-status" role="alert"></div>
+
+            <button type="submit" class="submit-btn">
+                <span>SUBMIT ADMISSION APPLICATION</span>
+                <b>→</b>
+            </button>
+            <p class="privacy">🔒 Your information is used only for gym membership registration.</p>
+        </form>
+    </main>
+
+    <footer>
+        <div class="logo"><span>FIT</span>ZONE</div>
+        <p>Train hard. Stay consistent. Become stronger.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
