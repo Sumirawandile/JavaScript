@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Scheduler | Timers &amp; ES6 Modules</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Class Scheduler</p>
+    <div class="clock" id="clock">--:--:--</div>
+    <p class="date" id="date">Loading...</p>
+  </div>
+</header>
+
+<div class="warn" id="fileWarn" hidden>
+  This page uses ES6 modules, so it must be opened with <strong>Live Server</strong> (http://localhost...), not by double-clicking the file.
+</div>
+
+<main class="wrap">
+
+  <!-- Preview mode -->
+  <details class="preview">
+    <summary>Preview mode: test with another day or time</summary>
+    <form id="previewForm" class="row">
+      <label>Day
+        <select id="previewDay">
+          <option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option>
+          <option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option>
+          <option value="0">Sunday</option>
+        </select>
+      </label>
+      <label>Time <input type="time" id="previewTime" value="10:20:00" step="1"></label>
+      <button class="btn" type="submit">Preview</button>
+      <button class="btn ghost" type="button" id="resetPreview" hidden>Use real time</button>
+    </form>
+  </details>
+  <p class="banner" id="previewBanner" hidden>Preview mode is on. The clock above is not the real time.</p>
+
+  <!-- Now + Next -->
+  <div class="grid">
+    <section class="card now">
+      <h2>Happening Now</h2>
+      <div id="nowBody"></div>
+    </section>
+    <section class="card next">
+      <h2>Up Next</h2>
+      <div id="nextBody"></div>
+    </section>
+  </div>
+
+  <!-- Today -->
+  <section class="card">
+    <h2>Today's Schedule</h2>
+    <ul class="slots" id="todayList"></ul>
+  </section>
+
+  <!-- Week -->
+  <section class="card">
+    <h2>Weekly Timetable</h2>
+    <div class="table-wrap"><table id="weekTable"></table></div>
+    <p class="hint">Sample timetable. Edit <code>js/data.js</code> to use your own classes.</p>
+  </section>
+
+  <!-- Focus timer -->
+  <section class="card">
+    <h2>Focus Timer</h2>
+    <div class="focus">
+      <div class="focus-time" id="focusTime">25:00</div>
+      <div class="row">
+        <select id="focusMin" aria-label="Minutes">
+          <option value="1">1 min (demo)</option><option value="5">5 min</option>
+          <option value="15">15 min</option><option value="25" selected>25 min</option><option value="45">45 min</option>
+        </select>
+        <button class="btn" id="focusStart">Start</button>
+        <button class="btn ghost" id="focusPause">Pause</button>
+        <button class="btn ghost" id="focusReset">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="card">
+    <h2>How It Works</h2>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th></th><th>setTimeout()</th><th>setInterval()</th></tr></thead>
+        <tbody>
+          <tr><td>Runs</td><td>Once, after a delay</td><td>Again and again, every delay</td></tr>
+          <tr><td>Stop with</td><td><code>clearTimeout(id)</code></td><td><code>clearInterval(id)</code></td></tr>
+          <tr><td>Used here for</td><td>Class start/end alert, hiding the message</td><td>Clock, countdowns, focus timer</td></tr>
+        </tbody>
+      </table>
+    </div>
+<pre><code>// js/main.js
+import { getStatus } from "./scheduler.js";   // import what you need
+
+setInterval(tick, 1000);                      // update every second
+setTimeout(() => toast("Class started"), ms); // fire once later</code></pre>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="foot">Built with HTML, CSS &amp; JavaScript (ES6 modules) &mdash; no libraries.</footer>
+
+<script>
+  if (location.protocol === "file:") document.getElementById("fileWarn").hidden = false;
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

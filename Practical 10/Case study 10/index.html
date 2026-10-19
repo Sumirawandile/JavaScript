@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Loader | fetch() &amp; $.getJSON()</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>JSON Data Loader</h1>
+    <p class="sub">Loading <code>data.json</code> with <code>fetch()</code> and jQuery <code>$.getJSON()</code></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 1. CONTROLS -->
+  <section class="card">
+    <h2>1. Load the Data</h2>
+    <p>Both buttons read the same file and build the table below. Compare the method used and the time taken.</p>
+    <div class="row">
+      <button class="btn btn-fetch" id="btnFetch">Load with fetch()</button>
+      <button class="btn btn-jq" id="btnJq">Load with $.getJSON()</button>
+      <button class="btn ghost" id="btnClear">Clear table</button>
+    </div>
+    <div class="status" id="status" role="status" aria-live="polite">
+      <span class="dot idle"></span><span id="statusText">Nothing loaded yet. Click a button.</span>
+    </div>
+  </section>
+
+  <!-- 2. TABLE -->
+  <section class="card">
+    <h2>2. Results Table</h2>
+
+    <div class="meta" id="meta" hidden>
+      <span class="badge" id="badgeMethod"></span>
+      <span id="metaInfo"></span>
+    </div>
+
+    <div class="row tools" id="tools" hidden>
+      <input type="search" id="search" placeholder="Search name, creator, paradigm..." aria-label="Search the table">
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th data-key="id">#</th>
+            <th data-key="name">Language</th>
+            <th data-key="creator">Creator</th>
+            <th data-key="year">Year</th>
+            <th data-key="paradigm">Paradigm</th>
+            <th data-key="typing">Typing</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td class="empty" colspan="6">No data yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">Tip: click a column heading to sort the rows.</p>
+  </section>
+
+  <!-- 3. HOW IT WORKS -->
+  <section class="card">
+    <h2>3. How It Works</h2>
+    <table class="compare">
+      <thead><tr><th></th><th>fetch()</th><th>$.getJSON()</th></tr></thead>
+      <tbody>
+        <tr><td>Type</td><td>Built into the browser</td><td>jQuery library function</td></tr>
+        <tr><td>Returns</td><td>A Promise</td><td>A jqXHR (promise-like) object</td></tr>
+        <tr><td>JSON parsing</td><td>Manual: <code>response.json()</code></td><td>Automatic</td></tr>
+        <tr><td>HTTP errors (404)</td><td>Not rejected, check <code>response.ok</code></td><td>Calls <code>.fail()</code></td></tr>
+      </tbody>
+    </table>
+
+<pre><code>// fetch()
+fetch("data.json")
+  .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+  .then(data => renderTable(data.languages))
+  .catch(err => showError(err));
+
+// jQuery
+$.getJSON("data.json")
+  .done(data => renderTable(data.languages))
+  .fail((xhr, status, err) => showError(err));</code></pre>
+  </section>
+
+</main>
+
+<footer class="foot">Built with HTML, CSS, JavaScript &amp; jQuery 3.7.1</footer>
+
+<script src="jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "title": "Programming Languages",
+  "updated": "2026-10-18",
+  "languages": [
+    { "id": 1,  "name": "JavaScript", "creator": "Brendan Eich",        "year": 1995, "paradigm": "Multi-paradigm", "typing": "Dynamic" },
+    { "id": 2,  "name": "Python",     "creator": "Guido van Rossum",    "year": 1991, "paradigm": "Multi-paradigm", "typing": "Dynamic" },
+    { "id": 3,  "name": "Java",       "creator": "James Gosling",       "year": 1995, "paradigm": "Object-oriented", "typing": "Static" },
+    { "id": 4,  "name": "C",          "creator": "Dennis Ritchie",      "year": 1972, "paradigm": "Procedural",     "typing": "Static" },
+    { "id": 5,  "name": "C++",        "creator": "Bjarne Stroustrup",   "year": 1985, "paradigm": "Multi-paradigm", "typing": "Static" },
+    { "id": 6,  "name": "PHP",        "creator": "Rasmus Lerdorf",      "year": 1995, "paradigm": "Multi-paradigm", "typing": "Dynamic" },
+    { "id": 7,  "name": "Ruby",       "creator": "Yukihiro Matsumoto",  "year": 1995, "paradigm": "Object-oriented", "typing": "Dynamic" },
+    { "id": 8,  "name": "Go",         "creator": "Robert Griesemer, Rob Pike, Ken Thompson", "year": 2009, "paradigm": "Concurrent", "typing": "Static" },
+    { "id": 9,  "name": "Rust",       "creator": "Graydon Hoare",       "year": 2010, "paradigm": "Multi-paradigm", "typing": "Static" },
+    { "id": 10, "name": "Swift",      "creator": "Chris Lattner",       "year": 2014, "paradigm": "Multi-paradigm", "typing": "Static" },
+    { "id": 11, "name": "Kotlin",     "creator": "JetBrains",           "year": 2011, "paradigm": "Multi-paradigm", "typing": "Static" },
+    { "id": 12, "name": "TypeScript", "creator": "Anders Hejlsberg",    "year": 2012, "paradigm": "Multi-paradigm", "typing": "Static" }
+  ]
+}
