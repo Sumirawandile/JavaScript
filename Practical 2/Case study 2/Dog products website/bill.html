@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woof & Wag — Invoice & Bill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="brand"><span class="paw">🐾</span> Woof & Wag</div>
+    <nav class="nav-links">
+      <a href="index.html">← Back to Shop</a>
+    </nav>
+  </div>
+</header>
+
+<div class="bill-wrap">
+  <div class="bill-header">
+    <h2 class="display" style="font-size:2rem;">🧾 Generate Your Bill</h2>
+    <p style="opacity:.65;">Items from your cart are pre-filled — edit anything, add rows, and calculate the final total.</p>
+  </div>
+
+  <div class="invoice-card">
+    <div class="form-grid">
+      <div class="field">
+        <label>Customer Name</label>
+        <input type="text" id="custName" placeholder="e.g. Riya Sharma">
+      </div>
+      <div class="field">
+        <label>Mobile Number</label>
+        <input type="tel" id="custMobile" placeholder="10-digit mobile number" maxlength="10">
+      </div>
+      <div class="field">
+        <label>Invoice No.</label>
+        <input type="text" id="invoiceNo" readonly>
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input type="text" id="invoiceDate" readonly>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.2rem;margin-bottom:14px;">Items</h3>
+    <table class="items" id="itemsTable">
+      <thead>
+        <tr>
+          <th style="width:28%">Product Name</th>
+          <th>Qty</th>
+          <th>Rate / kg (₹)</th>
+          <th>Discount (%)</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="itemsBody"></tbody>
+    </table>
+    <button class="add-row-btn" id="addRowBtn">+ Add Item Row</button>
+
+    <div class="form-grid">
+      <div class="field">
+        <label>GST (%)</label>
+        <input type="number" id="gstPct" value="18" min="0">
+      </div>
+      <div class="field">
+        <label>Packing Charges (₹)</label>
+        <input type="number" id="packing" value="20" min="0">
+      </div>
+    </div>
+
+    <div class="member-row">
+      <input type="checkbox" id="isMember">
+      <label for="isMember">Woof & Wag Member (extra 5% off on subtotal)</label>
+    </div>
+
+    <div class="bargain-row">
+      <div class="field">
+        <label>Bargain / Special Discount (%)</label>
+        <input type="number" id="bargainPct" value="0" min="0" max="100">
+      </div>
+      <div class="field">
+        <label>Reason (optional)</label>
+        <input type="text" id="bargainNote" placeholder="e.g. festive offer, loyal customer">
+      </div>
+    </div>
+
+    <h3 style="font-size:1.05rem;margin:22px 0 8px;">Payment Mode</h3>
+    <div class="pay-modes" id="payModes">
+      <label><input type="radio" name="pay" value="Cash" checked> 💵 Cash</label>
+      <label><input type="radio" name="pay" value="Card"> 💳 Card</label>
+      <label><input type="radio" name="pay" value="UPI"> 📱 UPI</label>
+    </div>
+
+    <button class="btn btn-primary" id="calcBtn" style="margin-top:26px;width:100%;justify-content:center;">Calculate Bill 🧮</button>
+
+    <div class="summary" id="summaryBox" style="display:none;">
+      <ul class="paw-list" style="margin-bottom:14px;">
+        <li id="sumCustomer"></li>
+        <li id="sumPay"></li>
+      </ul>
+      <div class="line"><span>Item Subtotal</span><span id="sumSubtotal">₹0</span></div>
+      <div class="line discount"><span>Item-level Discounts</span><span id="sumItemDisc">−₹0</span></div>
+      <div class="line discount" id="sumMemberRow"><span>Membership Discount (5%)</span><span id="sumMemberDisc">−₹0</span></div>
+      <div class="line discount" id="sumBargainRow"><span>Bargain Discount</span><span id="sumBargainDisc">−₹0</span></div>
+      <div class="line"><span>Taxable Amount</span><span id="sumTaxable">₹0</span></div>
+      <div class="line"><span>GST</span><span id="sumGst">+₹0</span></div>
+      <div class="line"><span>Packing Charges</span><span id="sumPacking">+₹0</span></div>
+      <div class="line total"><span>Grand Total</span><span id="sumTotal">₹0</span></div>
+    </div>
+
+    <div class="print-actions" id="printActions" style="display:none;">
+      <button class="btn btn-outline" id="printBtn">🖨️ Print Invoice</button>
+    </div>
+  </div>
+</div>
+
+<footer>Made for a JavaScript coursework project · Woof & Wag is a demo storefront 🐾</footer>
+
+<script src="bill.js"></script>
+</body>
+</html>

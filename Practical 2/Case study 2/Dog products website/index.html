@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woof & Wag — Everything for Your Dog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="brand"><span class="paw">🐾</span> Woof & Wag</div>
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="Search food, toys, beds...">
+    </div>
+    <nav class="nav-links">
+      <a href="#faq">FAQ</a>
+      <a href="bill.html">Invoice</a>
+    </nav>
+    <button class="cart-pill" id="cartBtn">🛒 Cart <span class="count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">🐶 Dog-only. Dog-obsessed.</span>
+    <h1>Everything your dog <span>deserves.</span></h1>
+    <p class="lead">Fresh food, comfy beds, tough toys and grooming essentials — hand-picked for happy, healthy dogs.</p>
+    <div class="hero-ctas">
+      <a href="#shop" class="btn btn-primary">Shop Now 🦴</a>
+      <a href="#faq" class="btn btn-outline">How It Works</a>
+    </div>
+  </div>
+  <div class="hero-photo container" id="heroPhoto">
+    <img src="images/hero-dog.jpg" alt="Our dogs" onerror="document.getElementById('heroPhoto').classList.add('ph');this.remove();">
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container grid4">
+    <div><div class="num">12,000+</div><div class="label">Happy Dogs Fed</div></div>
+    <div><div class="num">4.8★</div><div class="label">Average Rating</div></div>
+    <div><div class="num">60+</div><div class="label">Cities Delivered</div></div>
+    <div><div class="num">24 hr</div><div class="label">Dispatch Time</div></div>
+  </div>
+</section>
+
+<main id="shop" class="container">
+  <h2 class="section-title">Shop the Pack</h2>
+  <p class="section-sub">Filter by category, sort by price, or just search for what your dog needs.</p>
+
+  <div class="toolbar">
+    <div class="chip-row" id="chipRow">
+      <button class="chip active" data-cat="all">All</button>
+      <button class="chip" data-cat="food">Food</button>
+      <button class="chip" data-cat="toys">Toys</button>
+      <button class="chip" data-cat="beds">Beds</button>
+      <button class="chip" data-cat="accessories">Accessories</button>
+      <button class="chip" data-cat="grooming">Grooming</button>
+      <button class="chip" data-cat="treats">Treats & Health</button>
+    </div>
+    <select class="sort-select" id="sortSelect">
+      <option value="default">Sort: Featured</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="rating">Highest Rated</option>
+    </select>
+  </div>
+
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Tail-Wagging Reviews</h2>
+    <p class="section-sub">From real dog parents.</p>
+    <div class="tgrid">
+      <div class="tcard">
+        <span class="stars">★★★★★</span>
+        <p>"My golden retriever's coat has never looked better since we switched to the chicken kibble here. Fast delivery too!"</p>
+        <div class="who">Ananya R. <small>Pune · Golden Retriever</small></div>
+      </div>
+      <div class="tcard">
+        <span class="stars">★★★★★</span>
+        <p>"The orthopedic bed genuinely helped my senior dog sleep better. Worth every rupee."</p>
+        <div class="who">Karan M. <small>Nagpur · Labrador</small></div>
+      </div>
+      <div class="tcard">
+        <span class="stars">★★★★☆</span>
+        <p>"Great toy quality, survived my Beagle's chewing for weeks. Packaging was adorable too."</p>
+        <div class="who">Sneha P. <small>Mumbai · Beagle</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq container" id="faq">
+  <h2 class="section-title">Frequently Asked</h2>
+  <p class="section-sub" style="margin-bottom:26px;">Quick answers before you order.</p>
+  <div class="faq-item">
+    <button class="faq-q">How fast is delivery? <span class="icon">+</span></button>
+    <div class="faq-a">Most orders are dispatched within 24 hours and delivered within 2-4 working days depending on your city.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Can I subscribe for repeat orders? <span class="icon">+</span></button>
+    <div class="faq-a">Yes — tick "Subscribe & Save" on any food or treat product to get it delivered monthly at 10% off, automatically.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">What if my dog doesn't like a product? <span class="icon">+</span></button>
+    <div class="faq-a">We offer easy 7-day returns on unopened items — just generate your invoice and contact support with the invoice number.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Do you offer bulk or membership discounts? <span class="icon">+</span></button>
+    <div class="faq-a">Yes — check the Invoice page for membership pricing and a bargain/negotiation field for bulk orders.</div>
+  </div>
+</section>
+
+<footer>Made for a JavaScript coursework project · Woof & Wag is a demo storefront 🐾</footer>
+
+<!-- Cart Drawer -->
+<div class="drawer-overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button id="closeDrawer">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot">
+    <div class="row"><span>Subtotal</span><span id="drawerSubtotal">₹0</span></div>
+    <a href="bill.html" class="btn btn-dark" style="width:100%;justify-content:center;" id="goToBillBtn">Generate Bill →</a>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>

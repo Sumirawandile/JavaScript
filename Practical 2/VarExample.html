@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var Example</title>
+</head>
+<body>
+  <h2>Demonstrating var</h2>
+  <p id="demo"></p>
+  <script>
+    var cartItems = 0;
+    var cartItems = 5;   // re-declaration allowed with var
+    cartItems = 8;       // reassignment allowed
+ 
+    function addItem() {
+      var cartItems = 100; // function-scoped, separate from the outer one
+      console.log("Inside function:", cartItems);
+    }
+    addItem();
+ 
+    document.getElementById("demo").innerHTML =
+      "Cart items (outer scope): " + cartItems;
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enter value</h2>
+    x: <input type="number" id="x"><br><br>
+    y: <input type="number" id="y"><br><br>
+    z: <input type="number" id="z"><br><br>
+
+    <button onclick="showValues()">Show</button>
+    <p id="result"></p>
+    <script>
+        function showValues(){
+            var x = Number(document.getElementById("x").value);
+            let y = Number(document.getElementById("y").value);
+            var z = Number(document.getElementById("z").value);
+            
+            x = x+10;
+            y = y+10;
+            z = z+10;
+            document.getElementById("result").innerHTML = 
+            "Updated x: "+x+"<br>"+
+            "Updated y: "+y+"<br>"+
+            "z (const): "+z;
+        }
+    </script>
+</body>
+</html>
