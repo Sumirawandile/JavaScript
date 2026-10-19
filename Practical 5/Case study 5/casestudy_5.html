@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smallest & Largest Number Finder</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f4f3;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    padding: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 10px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #0f766e;
+  }
+
+  h1 {
+    margin: 0 0 6px;
+    font-size: 21px;
+    color: #0f172a;
+  }
+
+  p.subtitle {
+    margin: 0 0 18px;
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    resize: vertical;
+    font-family: inherit;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: #0f766e;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  button {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  #loadExampleBtn {
+    background: #e0f2f1;
+    color: #0f766e;
+  }
+
+  #loadExampleBtn:hover {
+    background: #ccebe9;
+  }
+
+  #findBtn {
+    background: #ea580c;
+    color: #ffffff;
+  }
+
+  #findBtn:hover {
+    background: #d24f0a;
+  }
+
+  .result {
+    margin-top: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: #1e293b;
+    line-height: 1.9;
+  }
+
+  .result span.tag {
+    color: #64748b;
+  }
+
+  .result b {
+    color: #0f172a;
+  }
+
+  .result .low b { color: #dc2626; }
+  .result .high b { color: #0f766e; }
+
+  .error {
+    margin-top: 20px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Smallest &amp; Largest Number Finder</h1>
+  <p class="subtitle">Type in some numbers and this page will scan the list to find the lowest and highest values.</p>
+
+  <label for="numInput">Enter numbers (separate with commas, spaces, or new lines):</label>
+  <textarea id="numInput" placeholder="e.g. 8, 21, 3, 56, 17"></textarea>
+
+  <div class="btn-row">
+    <button id="loadExampleBtn" type="button">Load Example</button>
+    <button id="findBtn" type="button">Find Result</button>
+  </div>
+
+  <div id="output"></div>
+</div>
+
+<script>
+  // Sample data students can load with one click
+  const exampleNumbers = [8, 21, 3, 56, 17, 40];
+
+  const inputBox = document.getElementById('numInput');
+  const outputBox = document.getElementById('output');
+
+  document.getElementById('loadExampleBtn').addEventListener('click', function () {
+    inputBox.value = exampleNumbers.join(', ');
+  });
+
+  document.getElementById('findBtn').addEventListener('click', function () {
+    // Split the raw text on commas, spaces, and newlines, then clean it up
+    const rawParts = inputBox.value.split(/[\s,]+/).filter(function (part) {
+      return part.trim() !== '';
+    });
+
+    if (rawParts.length === 0) {
+      outputBox.innerHTML = '<div class="error">Please enter at least one number.</div>';
+      return;
+    }
+
+    const numbers = [];
+    for (let i = 0; i < rawParts.length; i++) {
+      const value = Number(rawParts[i]);
+      if (isNaN(value)) {
+        outputBox.innerHTML = '<div class="error">"' + rawParts[i] + '" is not a valid number. Please check your input.</div>';
+        return;
+      }
+      numbers.push(value);
+    }
+
+    // Core logic: walk through the array once, tracking the smallest
+    // and largest values seen so far (no built-in Math.min/Math.max used).
+    let smallest = numbers[0];
+    let largest = numbers[0];
+
+    for (let i = 1; i < numbers.length; i++) {
+      if (numbers[i] < smallest) {
+        smallest = numbers[i];
+      }
+      if (numbers[i] > largest) {
+        largest = numbers[i];
+      }
+    }
+
+    outputBox.innerHTML =
+      '<div class="result">' +
+        '<div><span class="tag">Numbers entered:</span> [' + numbers.join(', ') + ']</div>' +
+        '<div class="low"><span class="tag">Smallest value:</span> <b>' + smallest + '</b></div>' +
+        '<div class="high"><span class="tag">Largest value:</span> <b>' + largest + '</b></div>' +
+      '</div>';
+  });
+</script>
+
+</body>
+</html>
