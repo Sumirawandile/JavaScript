@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic" data-size="md">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preference Manager | localStorage &amp; sessionStorage</title>
+  <!-- Apply saved prefs before first paint (no flash of wrong theme) -->
+  <script>
+    try {
+      var raw = sessionStorage.getItem("prefs") || localStorage.getItem("prefs");
+      var p = JSON.parse(raw || "{}");
+      if (p.theme) document.documentElement.setAttribute("data-theme", p.theme);
+      if (p.size) document.documentElement.setAttribute("data-size", p.size);
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Preference Manager</h1>
+    <p class="sub">Saving user settings with <code>localStorage</code> &amp; <code>sessionStorage</code></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="greet" id="greeting">Hello, Guest!</p>
+
+  <!-- 1. SETTINGS -->
+  <section class="card">
+    <h2>1. Your Preferences</h2>
+    <form id="form" onsubmit="return false">
+
+      <label>Name
+        <input type="text" id="name" maxlength="30" placeholder="Enter your name">
+      </label>
+
+      <fieldset>
+        <legend>Theme</legend>
+        <label class="opt"><input type="radio" name="theme" value="classic"> Classic Parchment</label>
+        <label class="opt"><input type="radio" name="theme" value="dark"> Midnight Ink</label>
+        <label class="opt"><input type="radio" name="theme" value="sepia"> Old Library</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Text size</legend>
+        <label class="opt"><input type="radio" name="size" value="sm"> Small</label>
+        <label class="opt"><input type="radio" name="size" value="md"> Medium</label>
+        <label class="opt"><input type="radio" name="size" value="lg"> Large</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Where to save</legend>
+        <label class="opt"><input type="radio" name="mode" value="local"> <strong>localStorage</strong> &mdash; remember after closing the browser</label>
+        <label class="opt"><input type="radio" name="mode" value="session"> <strong>sessionStorage</strong> &mdash; forget when this tab closes</label>
+      </fieldset>
+
+      <div class="row">
+        <button type="button" class="btn" id="reset">Reset all</button>
+        <span class="note" id="note" aria-live="polite"></span>
+      </div>
+    </form>
+  </section>
+
+  <!-- 2. SESSION-ONLY EXAMPLE -->
+  <section class="card">
+    <h2>2. Session Demo</h2>
+    <p>Anything typed here is kept with <code>sessionStorage</code>. Refresh the page and it stays; close the tab and it is gone.</p>
+    <textarea id="draft" rows="3" placeholder="Type a quick note..."></textarea>
+    <p class="note">Page loads in this tab: <strong id="loads">0</strong> &nbsp;|&nbsp; Total visits ever: <strong id="visits">0</strong></p>
+  </section>
+
+  <!-- 3. HOW IT WORKS -->
+  <section class="card">
+    <h2>3. How It Works</h2>
+    <table class="compare">
+      <thead><tr><th></th><th>localStorage</th><th>sessionStorage</th></tr></thead>
+      <tbody>
+        <tr><td>Lifetime</td><td>Until cleared</td><td>Until tab closes</td></tr>
+        <tr><td>Shared between tabs</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Size</td><td>~5 MB</td><td>~5 MB</td></tr>
+        <tr><td>Good for</td><td>Theme, language</td><td>Drafts, tab state</td></tr>
+      </tbody>
+    </table>
+<pre><code>// SAVE (objects must be turned into strings)
+localStorage.setItem("prefs", JSON.stringify({ theme: "dark" }));
+
+// LOAD
+const prefs = JSON.parse(localStorage.getItem("prefs")) || {};
+
+// APPLY to the page
+document.documentElement.setAttribute("data-theme", prefs.theme);
+
+// REMOVE
+localStorage.removeItem("prefs");</code></pre>
+  </section>
+
+</main>
+
+<footer class="foot">Built with HTML, CSS &amp; JavaScript &mdash; no libraries.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
