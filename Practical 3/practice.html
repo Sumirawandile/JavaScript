@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mouse Over Color Swap</h2>
+
+    <div id="redBox" style="width:200px;height:100px;background:red;text-align:center;line-height:100px;display:inline-block;margin-right:20px;">Red Box</div>
+    <div id="yellowBox" style="width:200px;height:100px;background:yellow;text-align:center;line-height:100px;display:inline-block;">Yellow Box</div>
+
+    <script>
+        const redBox = document.getElementById("redBox");
+        const yellowBox = document.getElementById("yellowBox");
+
+        // Hover on RED box → red turns yellow, yellow turns red
+        redBox.addEventListener("mouseover", function () {
+            redBox.style.background = "yellow";
+            yellowBox.style.background = "red";
+        });
+        redBox.addEventListener("mouseout", function () {
+            redBox.style.background = "red";
+            yellowBox.style.background = "yellow";
+        });
+
+        // Hover on YELLOW box → yellow turns red, red turns yellow
+        yellowBox.addEventListener("mouseover", function () {
+            yellowBox.style.background = "red";
+            redBox.style.background = "yellow";
+        });
+        yellowBox.addEventListener("mouseout", function () {
+            yellowBox.style.background = "yellow";
+            redBox.style.background = "red";
+        });
+    </script>
+</body>
+</html>
