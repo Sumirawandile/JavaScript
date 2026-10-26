@@ -1,0 +1,14 @@
+[
+  { "no": 1, "topic": "Inline, internal & external JS; console methods", "task": "Webpage with user info and a welcome message", "usedIn": "Hero greeting, back-to-top button (inline), theme script (internal), js/ files (external), browser console", "anchor": "#home", "folder": "Practical%201" },
+  { "no": 2, "topic": "var, let, const, template literals, destructuring", "task": "Billing calculator with user input", "usedIn": "About section text, Toolkit › Bill Splitter", "anchor": "#about", "folder": "Practical%202" },
+  { "no": 3, "topic": "Control structures & form validation", "task": "Grading system from entered marks", "usedIn": "Toolkit › Grade Calculator", "anchor": "#toolkit", "folder": "Practical%203" },
+  { "no": 4, "topic": "Function types, scope, closures, try-catch", "task": "Palindrome checker", "usedIn": "Toolkit › Palindrome (closure counter)", "anchor": "#toolkit", "folder": "Pratical%204" },
+  { "no": 5, "topic": "Array methods & object handling", "task": "Cart total calculator with discount logic", "usedIn": "Skills filter, timeline, Toolkit › Bill Splitter", "anchor": "#skills", "folder": "Practical%205" },
+  { "no": 6, "topic": "String functions & regex", "task": "Email validation, data extraction, text analysis", "usedIn": "Contact form, Toolkit › Text Analyzer, project search", "anchor": "#contact", "folder": "Practical%206" },
+  { "no": 7, "topic": "DOM traversal & updates", "task": "To-do list with add, edit and delete", "usedIn": "Toolkit › Task List, all dynamic sections", "anchor": "#toolkit", "folder": "Practical%207" },
+  { "no": 8, "topic": "Form fields & events", "task": "Gym admission form with live input checks", "usedIn": "Contact form live validation & character counter", "anchor": "#contact", "folder": "Practical%208" },
+  { "no": 9, "topic": "localStorage & sessionStorage", "task": "Save user preferences like theme", "usedIn": "Theme toggle, saved tasks, visit counter, contact draft", "anchor": "#home", "folder": "Practical%209" },
+  { "no": 10, "topic": "fetch() & jQuery $.getJSON()", "task": "Load JSON and render a dynamic table", "usedIn": "Projects (fetch) and this table ($.getJSON)", "anchor": "#projects", "folder": "Practical%2010" },
+  { "no": 11, "topic": "setTimeout, setInterval & ES6 modules", "task": "Countdown / class scheduler with live updates", "usedIn": "Typing effect, graduation countdown, counters, clock, js/ modules", "anchor": "#home", "folder": "Practical%2011/Case%20study%2011" },
+  { "no": 12, "topic": "jQuery with DOM, events, storage & AJAX", "task": "Interactive real-time web app", "usedIn": "Toolkit tabs, lab table search, mobile menu, whole site", "anchor": "#toolkit", "folder": "Practical%2012" }
+]

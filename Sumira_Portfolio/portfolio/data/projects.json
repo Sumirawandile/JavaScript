@@ -1,0 +1,60 @@
+[
+  {
+    "title": "REACT – Rapid Emergency Allocation Using Cognitive Technology",
+    "tagline": "Research paper presented at ICCIS, BITS Pilani Goa",
+    "category": "AI / ML",
+    "summary": "AI-powered disaster resource recommendation system that combines a Random Forest model with a Linear Programming pipeline to optimise the dispatch of medical supplies across disaster-affected zones in Uttarakhand.",
+    "tech": [
+      "Python",
+      "Random Forest",
+      "Linear Programming",
+      "Pandas"
+    ],
+    "highlight": "Paper presented",
+    "link": "https://github.com/Sumirawandile"
+  },
+  {
+    "title": "AI Music Composition using LSTM",
+    "tagline": "Deep learning for classical-style music",
+    "category": "AI / ML",
+    "summary": "Trained an LSTM with an Attention layer on the Bach MIDI dataset. Converted MIDI files into note sequences and generated new compositions back in MIDI format.",
+    "tech": [
+      "Python",
+      "LSTM",
+      "Attention",
+      "Deep Learning",
+      "MIDI"
+    ],
+    "highlight": "",
+    "link": "https://github.com/Sumirawandile"
+  },
+  {
+    "title": "Netflix Content Analytics Dashboard",
+    "tagline": "Interactive Streamlit web app",
+    "category": "Data Analytics",
+    "summary": "Deployed a Streamlit dashboard that analyses 8,000+ Netflix titles with real-time filters for year, genre and type, using Pandas for cleaning and preprocessing.",
+    "tech": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Data Cleaning"
+    ],
+    "highlight": "Deployed",
+    "link": "https://github.com/Sumirawandile"
+  },
+  {
+    "title": "JSON-to-SQL Data Pipeline",
+    "tagline": "Internship work · Keyy – Sozo Advisory",
+    "category": "Data Engineering",
+    "summary": "Python scripts that parse large JSON files and auto-generate SQL INSERT and UPDATE queries at scale, imported into Google Cloud SQL through Cloud Storage for a live credit card rewards system.",
+    "tech": [
+      "Python",
+      "JSON",
+      "SQL",
+      "Google Cloud SQL",
+      "Cloud Storage"
+    ],
+    "highlight": "Production",
+    "link": ""
+  }
+]
